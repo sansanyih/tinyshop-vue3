@@ -5,6 +5,8 @@
 > 本项目基于 [stavyan/TinyShop-UniApp](https://github.com/stavyan/TinyShop-UniApp)（Apache-2.0）做架构级重构，
 > 商品数据与图片为演示用 Mock 数据。原作者信息见 `THANKS.md`。
 
+**在线演示**：https://sansanyih.github.io/tinyshop-vue3/ （手机浏览器打开，登录用任意手机号 + 验证码 `123456`）
+
 ![首页](docs/screenshots/home.png)
 
 ## 快速开始
