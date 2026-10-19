@@ -1,0 +1,52 @@
+﻿[
+    {
+        "slot":  "g01",
+        "file":  "D:\\qiandun\\前端\\tinyshop-vue3\\src\\static\\goods\\g01.jpg",
+        "title":  "File:Bose QuietComfort 25 Acoustic Noise Cancelling Headphones with Carry Case.jpg"
+    },
+    {
+        "slot":  "g02",
+        "file":  "D:\\qiandun\\前端\\tinyshop-vue3\\src\\static\\goods\\g02.jpg",
+        "title":  "File:A child wears a smartwatch on her wrist while picking grass.jpg"
+    },
+    {
+        "slot":  "g03",
+        "file":  "D:\\qiandun\\前端\\tinyshop-vue3\\src\\static\\goods\\g03.png",
+        "title":  "File:Armed Riders in Front of an Inn (SM 1072).png"
+    },
+    {
+        "slot":  "g04",
+        "file":  "D:\\qiandun\\前端\\tinyshop-vue3\\src\\static\\goods\\g04.jpg",
+        "title":  "File:Bettbezug zum Stecken ohne Knoepfe 2012 PD 3.JPG"
+    },
+    {
+        "slot":  "g05",
+        "file":  "D:\\qiandun\\前端\\tinyshop-vue3\\src\\static\\goods\\g05.jpg",
+        "title":  "File:Mechanical Keyboard Exhibition.jpg"
+    },
+    {
+        "slot":  "g07",
+        "file":  "D:\\qiandun\\前端\\tinyshop-vue3\\src\\static\\goods\\g07.jpg",
+        "title":  "File:Helinox Ground Chair 1.jpg"
+    },
+    {
+        "slot":  "g08",
+        "file":  "D:\\qiandun\\前端\\tinyshop-vue3\\src\\static\\goods\\g08.jpg",
+        "title":  "File:Cotton harvest in Xinjiang.jpg"
+    },
+    {
+        "slot":  "g09",
+        "file":  "D:\\qiandun\\前端\\tinyshop-vue3\\src\\static\\goods\\g09.jpg",
+        "title":  "File:Dry cat food 05.jpg"
+    },
+    {
+        "slot":  "g10",
+        "file":  "D:\\qiandun\\前端\\tinyshop-vue3\\src\\static\\goods\\g10.jpg",
+        "title":  "File:-44 Light fixture.jpg"
+    },
+    {
+        "slot":  "g12",
+        "file":  "D:\\qiandun\\前端\\tinyshop-vue3\\src\\static\\goods\\g12.jpg",
+        "title":  "File:Thermos flask Termoverken.jpg"
+    }
+]
