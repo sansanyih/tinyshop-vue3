@@ -1,0 +1,37 @@
+/* 设计变量：uni-app 会把本文件自动注入到所有 SFC 的 scss 中 */
+
+/* 品牌色 */
+$rf-primary: #fa436a;
+$rf-primary-light: #ff7d99;
+$rf-success: #19be6b;
+$rf-warning: #ff9900;
+$rf-error: #fa3534;
+
+/* 文本色 */
+$rf-text: #303133;
+$rf-text-regular: #606266;
+$rf-text-secondary: #909399;
+$rf-text-placeholder: #c0c4cc;
+
+/* 背景与边框 */
+$rf-page-bg: #f7f7f7;
+$rf-card-bg: #ffffff;
+$rf-border: #ebeef5;
+
+/* 间距（rpx） */
+$rf-gap-xs: 8rpx;
+$rf-gap-sm: 16rpx;
+$rf-gap: 24rpx;
+$rf-gap-lg: 32rpx;
+
+/* 圆角 */
+$rf-radius-sm: 8rpx;
+$rf-radius: 16rpx;
+$rf-radius-lg: 24rpx;
+
+/* 字号 */
+$rf-font-xs: 22rpx;
+$rf-font-sm: 24rpx;
+$rf-font: 28rpx;
+$rf-font-lg: 32rpx;
+$rf-font-xl: 36rpx;

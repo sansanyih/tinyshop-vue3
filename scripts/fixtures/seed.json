@@ -1,0 +1,36 @@
+{
+  "user": {
+    "id": 10086,
+    "nickname": "申思宇",
+    "avatar": "/static/goods/g01.jpg",
+    "mobile": "13662659069",
+    "level": "VIP2",
+    "points": 1680,
+    "balance": 288.5,
+    "couponCount": 3
+  },
+  "cart": [
+    {
+      "productId": 1,
+      "skuId": 11,
+      "title": "无线降噪头戴耳机",
+      "cover": "/static/goods/g01.jpg",
+      "price": 1299,
+      "skuName": "标准版",
+      "qty": 1,
+      "checked": true,
+      "stock": 120
+    },
+    {
+      "productId": 8,
+      "skuId": 81,
+      "title": "速干运动 T 恤 男女同款",
+      "cover": "/static/goods/g08.jpg",
+      "price": 129,
+      "skuName": "标准版",
+      "qty": 2,
+      "checked": true,
+      "stock": 120
+    }
+  ]
+}
