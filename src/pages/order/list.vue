@@ -81,7 +81,7 @@ function goIndex() {
           </view>
 
           <view v-for="item in order.items" :key="item.skuId" class="orders__item">
-            <image class="orders__cover" :src="item.cover" mode="aspectFill" />
+            <image class="orders__cover" :src="item.cover" :alt="item.title" mode="aspectFill" />
             <view class="orders__item-info">
               <text class="orders__title rf-ellipsis-2">{{ item.title }}</text>
               <text class="orders__sku">{{ item.skuName }} · x{{ item.qty }}</text>

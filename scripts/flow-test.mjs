@@ -38,7 +38,9 @@ try {
   }
   if (!ready) throw new Error('浏览器未启动')
 
-  const target = await (await fetch(`http://127.0.0.1:${PORT}/json/new?about:blank`, { method: 'PUT' })).json()
+  const target = await (
+    await fetch(`http://127.0.0.1:${PORT}/json/new?about:blank`, { method: 'PUT' })
+  ).json()
   ws = new WebSocket(target.webSocketDebuggerUrl)
   await new Promise((res, rej) => {
     ws.onopen = res
@@ -55,7 +57,9 @@ try {
       m.error ? p.reject(new Error(m.error.message)) : p.resolve(m.result)
     }
     if (m.method === 'Runtime.exceptionThrown') {
-      logs.push('EXCEPTION: ' + (m.params.exceptionDetails.exception?.description ?? '').slice(0, 160))
+      logs.push(
+        'EXCEPTION: ' + (m.params.exceptionDetails.exception?.description ?? '').slice(0, 160)
+      )
     }
     if (m.method === 'Log.entryAdded' && m.params.entry.level === 'error') {
       logs.push('CONSOLE: ' + m.params.entry.text.slice(0, 160))
@@ -71,10 +75,16 @@ try {
   await send('Page.enable')
   await send('Runtime.enable')
   await send('Log.enable')
-  await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true })
+  await send('Emulation.setDeviceMetricsOverride', {
+    width: 390,
+    height: 844,
+    deviceScaleFactor: 2,
+    mobile: true
+  })
 
   const evalJs = async (expr) =>
-    (await send('Runtime.evaluate', { expression: expr, returnByValue: true, awaitPromise: true })).result.value
+    (await send('Runtime.evaluate', { expression: expr, returnByValue: true, awaitPromise: true }))
+      .result.value
 
   const text = () => evalJs('document.body.innerText.replace(/\\s+/g," ").slice(0,300)')
 

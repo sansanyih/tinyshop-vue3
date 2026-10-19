@@ -74,7 +74,9 @@ function notImplemented(label: string) {
         />
         <view v-else class="mine__avatar mine__avatar--placeholder">👤</view>
         <view class="mine__info">
-          <text class="mine__nickname">{{ userStore.isLogin ? profile?.nickname : '点击登录' }}</text>
+          <text class="mine__nickname">{{
+            userStore.isLogin ? profile?.nickname : '点击登录'
+          }}</text>
           <text v-if="userStore.isLogin" class="mine__mobile">
             {{ profile ? maskMobile(profile.mobile) : '' }} · {{ profile?.level }}
           </text>

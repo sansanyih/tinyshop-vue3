@@ -17,7 +17,9 @@ const props = withDefaults(defineProps<Props>(), {
       <view class="rf-load-more__dot" />
       <text class="rf-load-more__text">加载中…</text>
     </template>
-    <text v-else-if="props.status === 'noMore'" class="rf-load-more__text">{{ props.noMoreText }}</text>
+    <text v-else-if="props.status === 'noMore'" class="rf-load-more__text">{{
+      props.noMoreText
+    }}</text>
   </view>
 </template>
 

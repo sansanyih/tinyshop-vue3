@@ -30,16 +30,24 @@ const authedPages = [
 ]
 
 for (const [name, hash] of publicPages) {
-  execFileSync(process.execPath, ['scripts/shot.mjs', base + hash, join(outDir, `${name}.png`), '390', '844'], {
-    cwd: root,
-    stdio: 'inherit'
-  })
+  execFileSync(
+    process.execPath,
+    ['scripts/shot.mjs', base + hash, join(outDir, `${name}.png`), '390', '844'],
+    {
+      cwd: root,
+      stdio: 'inherit'
+    }
+  )
 }
 
 for (const [name, hash] of authedPages) {
-  execFileSync(process.execPath, ['scripts/shot.mjs', base + hash, join(outDir, `${name}.png`), '390', '844'], {
-    cwd: root,
-    stdio: 'inherit',
-    env: { ...process.env, SEED_FILE: seed }
-  })
+  execFileSync(
+    process.execPath,
+    ['scripts/shot.mjs', base + hash, join(outDir, `${name}.png`), '390', '844'],
+    {
+      cwd: root,
+      stdio: 'inherit',
+      env: { ...process.env, SEED_FILE: seed }
+    }
+  )
 }

@@ -168,7 +168,9 @@ try {
     console.log('diag:', diag.result?.value)
   }
 
-  console.log(`saved ${out} (${w}x${h}@2x)` + (errors.length ? `\nruntime errors:\n${errors.join('\n')}` : ''))
+  console.log(
+    `saved ${out} (${w}x${h}@2x)` + (errors.length ? `\nruntime errors:\n${errors.join('\n')}` : '')
+  )
 } finally {
   try {
     ws?.close()

@@ -25,9 +25,20 @@ function handleClick() {
 </script>
 
 <template>
-  <view class="rf-product-card" :class="`rf-product-card--${props.layout}`" hover-class="rf-hover" @tap="handleClick">
+  <view
+    class="rf-product-card"
+    :class="`rf-product-card--${props.layout}`"
+    hover-class="rf-hover"
+    @tap="handleClick"
+  >
     <view class="rf-product-card__cover-wrap">
-      <image class="rf-product-card__cover" :src="props.product.cover" mode="aspectFill" lazy-load />
+      <image
+        class="rf-product-card__cover"
+        :src="props.product.cover"
+        :alt="props.product.title"
+        mode="aspectFill"
+        lazy-load
+      />
       <text v-if="props.badge" class="rf-product-card__badge">{{ props.badge }}</text>
     </view>
 

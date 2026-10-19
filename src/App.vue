@@ -21,8 +21,9 @@ page {
   background-color: $rf-page-bg;
   color: $rf-text;
   font-size: $rf-font;
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC',
-    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', sans-serif;
   line-height: 1.5;
 }
 

@@ -20,7 +20,9 @@ export const getAddressList = () =>
   http.get<{ list: Address[] }>(URL.addressList, undefined, { auth: true }).then((res) => res.list)
 
 export const createAddress = (payload: Omit<Address, 'id' | 'isDefault'>) =>
-  http.post<Address>(URL.addressCreate, payload as unknown as Record<string, unknown>, { auth: true })
+  http.post<Address>(URL.addressCreate, payload as unknown as Record<string, unknown>, {
+    auth: true
+  })
 
 export interface OrderQuery {
   status?: string

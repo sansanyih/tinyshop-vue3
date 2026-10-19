@@ -51,5 +51,8 @@
       "timeout": 6000
     }
   },
+  "uniStatistics": {
+    "enable": false
+  },
   "vueVersion": "3"
 }

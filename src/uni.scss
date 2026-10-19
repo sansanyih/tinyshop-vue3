@@ -7,11 +7,11 @@ $rf-success: #19be6b;
 $rf-warning: #ff9900;
 $rf-error: #fa3534;
 
-/* 文本色 */
+/* 文本色（对比度按 WCAG AA ≥ 4.5:1 选色） */
 $rf-text: #303133;
-$rf-text-regular: #606266;
-$rf-text-secondary: #909399;
-$rf-text-placeholder: #c0c4cc;
+$rf-text-regular: #4b5563;
+$rf-text-secondary: #6b7280;
+$rf-text-placeholder: #9ca3af;
 
 /* 背景与边框 */
 $rf-page-bg: #f7f7f7;

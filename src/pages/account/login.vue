@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import { computed, ref } from 'vue'
 import { onLoad } from '@dcloudio/uni-app'
 import RfNavbar from '@/components/RfNavbar.vue'
@@ -66,7 +66,7 @@ async function submit() {
     await userStore.login(mobile.value, code.value)
     uni.showToast({ title: '登录成功', icon: 'success' })
     setTimeout(afterLogin, 400)
-  } catch (error) {
+  } catch {
     /* 错误提示已由请求层统一处理 */
   } finally {
     submitting.value = false
@@ -111,7 +111,11 @@ function skip() {
           placeholder="请输入 6 位验证码"
           placeholder-class="login__placeholder"
         />
-        <text class="login__code" :class="{ 'login__code--disabled': countdown > 0 }" @tap="sendCode">
+        <text
+          class="login__code"
+          :class="{ 'login__code--disabled': countdown > 0 }"
+          @tap="sendCode"
+        >
           {{ countdown > 0 ? `${countdown}s 后重发` : '获取验证码' }}
         </text>
       </view>

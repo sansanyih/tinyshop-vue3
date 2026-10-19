@@ -69,7 +69,15 @@ function handleUnauthorized() {
  * - 配置后走真实 uni.request，请求/响应拦截逻辑与后端 Result 结构对齐
  */
 export async function request<T>(options: RequestOptions): Promise<T> {
-  const { url, method = 'GET', data, params, loading = false, auth = false, showError = true } = options
+  const {
+    url,
+    method = 'GET',
+    data,
+    params,
+    loading = false,
+    auth = false,
+    showError = true
+  } = options
   const token = storage.getToken()
 
   if (auth && !token) {
@@ -107,7 +115,8 @@ export async function request<T>(options: RequestOptions): Promise<T> {
           'Content-Type': 'application/json',
           ...(token ? { 'x-api-key': token } : {})
         },
-        success: (resp) => resolve({ data: resp.data as ApiResult<T>, statusCode: resp.statusCode }),
+        success: (resp) =>
+          resolve({ data: resp.data as ApiResult<T>, statusCode: resp.statusCode }),
         fail: (err) => reject(err)
       })
     })

@@ -89,7 +89,13 @@ function preview(index: number) {
     <template v-else-if="product">
       <swiper class="detail__swiper" circular indicator-dots :current="0">
         <swiper-item v-for="(image, index) in product.images" :key="image">
-          <image class="detail__image" :src="image" mode="aspectFill" @tap="preview(index)" />
+          <image
+            class="detail__image"
+            :src="image"
+            :alt="`${product.title} 图 ${index + 1}`"
+            mode="aspectFill"
+            @tap="preview(index)"
+          />
         </swiper-item>
       </swiper>
 
@@ -138,7 +144,11 @@ function preview(index: number) {
           <text v-if="cartCount" class="detail__bar-badge">{{ cartCount }}</text>
         </view>
         <view class="detail__bar-btns">
-          <view class="detail__btn detail__btn--cart" hover-class="rf-hover" @tap="openPopup('cart')">
+          <view
+            class="detail__btn detail__btn--cart"
+            hover-class="rf-hover"
+            @tap="openPopup('cart')"
+          >
             加入购物车
           </view>
           <view class="detail__btn detail__btn--buy" hover-class="rf-hover" @tap="openPopup('buy')">

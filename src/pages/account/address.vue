@@ -31,7 +31,9 @@ async function loadList() {
 
 onLoad(() => {
   if (!userStore.isLogin) {
-    uni.redirectTo({ url: `/pages/account/login?redirect=${encodeURIComponent('/pages/account/address')}` })
+    uni.redirectTo({
+      url: `/pages/account/login?redirect=${encodeURIComponent('/pages/account/address')}`
+    })
     return
   }
   loadList()
@@ -105,7 +107,12 @@ async function save() {
 
       <view class="addr__field">
         <text class="addr__field-label">收货人</text>
-        <input v-model="form.name" class="addr__field-input" placeholder="请填写姓名" maxlength="20" />
+        <input
+          v-model="form.name"
+          class="addr__field-input"
+          placeholder="请填写姓名"
+          maxlength="20"
+        />
       </view>
       <view class="addr__field">
         <text class="addr__field-label">手机号</text>

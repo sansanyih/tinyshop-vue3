@@ -107,12 +107,16 @@ const routes: Record<string, Handler> = {
     if (categoryId) {
       // 二级分类 id 为 101 这类，一级分类 id 为 1 这类
       list = list.filter((item) =>
-        categoryId < 100 ? Math.floor(item.categoryId / 100) === categoryId : item.categoryId === categoryId
+        categoryId < 100
+          ? Math.floor(item.categoryId / 100) === categoryId
+          : item.categoryId === categoryId
       )
     }
     if (keyword) {
       const lower = keyword.toLowerCase()
-      list = list.filter((item) => item.title.toLowerCase().includes(lower) || item.subtitle.includes(keyword))
+      list = list.filter(
+        (item) => item.title.toLowerCase().includes(lower) || item.subtitle.includes(keyword)
+      )
     }
     return ok(paginate(list, page, pageSize))
   },

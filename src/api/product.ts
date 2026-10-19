@@ -22,7 +22,8 @@ export const getBanners = () => http.get<{ list: Banner[] }>(URL.bannerList).the
 
 export const getNotices = () => http.get<{ list: Notice[] }>(URL.noticeList).then((res) => res.list)
 
-export const getCategories = () => http.get<{ list: Category[] }>(URL.categoryList).then((res) => res.list)
+export const getCategories = () =>
+  http.get<{ list: Category[] }>(URL.categoryList).then((res) => res.list)
 
 export const getProducts = (query: ProductQuery = {}) =>
   http.get<PageResult<Product>>(URL.productList, query as Record<string, unknown>)

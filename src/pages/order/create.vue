@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import { computed, ref } from 'vue'
 import { onLoad, onShow } from '@dcloudio/uni-app'
 import RfNavbar from '@/components/RfNavbar.vue'
@@ -33,7 +33,9 @@ const totalAmount = computed(() =>
 
 const discount = computed(() => (items.value.length ? 10 : 0))
 
-const payAmount = computed(() => Math.max(0, Math.round((totalAmount.value - discount.value) * 100) / 100))
+const payAmount = computed(() =>
+  Math.max(0, Math.round((totalAmount.value - discount.value) * 100) / 100)
+)
 
 /** 地址页选中的地址缓存在这里，返回时 onShow 读取 */
 const SELECTED_ADDRESS_KEY = 'rf_selected_address'
@@ -115,7 +117,7 @@ async function submit() {
     setTimeout(() => {
       uni.redirectTo({ url: '/pages/order/list?status=shipping' })
     }, 600)
-  } catch (error) {
+  } catch {
     uni.hideLoading()
   } finally {
     submitting.value = false
@@ -174,7 +176,12 @@ async function submit() {
       </view>
       <view class="confirm__cell confirm__cell--column">
         <text class="confirm__cell-label">订单备注</text>
-        <input v-model="remark" class="confirm__remark" placeholder="选填，请填写备注信息" maxlength="60" />
+        <input
+          v-model="remark"
+          class="confirm__remark"
+          placeholder="选填，请填写备注信息"
+          maxlength="60"
+        />
       </view>
     </view>
 

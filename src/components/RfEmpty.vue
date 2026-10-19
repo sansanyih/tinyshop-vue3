@@ -21,7 +21,12 @@ const emit = defineEmits<{ (e: 'action'): void }>()
   <view class="rf-empty">
     <text class="rf-empty__icon">{{ props.icon }}</text>
     <text class="rf-empty__text">{{ props.text }}</text>
-    <view v-if="props.showButton" class="rf-empty__btn" hover-class="rf-hover" @tap="emit('action')">
+    <view
+      v-if="props.showButton"
+      class="rf-empty__btn"
+      hover-class="rf-hover"
+      @tap="emit('action')"
+    >
       {{ props.buttonText }}
     </view>
   </view>

@@ -45,7 +45,7 @@ async function loadProducts(reset = false) {
     total.value = result.total
     page.value += 1
     loadStatus.value = products.value.length >= result.total ? 'noMore' : 'idle'
-  } catch (error) {
+  } catch {
     loadStatus.value = 'idle'
   } finally {
     firstLoading.value = false
@@ -130,14 +130,18 @@ function goCategory() {
         indicator-active-color="#ffffff"
       >
         <swiper-item v-for="(item, index) in appStore.banners" :key="item.id">
-          <view class="banner-card" :style="{ background: gradients[index % 3] }" @tap="goBanner(item)">
+          <view
+            class="banner-card"
+            :style="{ background: gradients[index % 3] }"
+            @tap="goBanner(item)"
+          >
             <view class="banner-card__text">
               <text class="banner-card__tag">限时活动</text>
               <text class="banner-card__title">{{ item.title }}</text>
               <text class="banner-card__sub">{{ item.subtitle }}</text>
               <view class="banner-card__cta">立即抢购 ›</view>
             </view>
-            <image class="banner-card__img" :src="item.image" mode="aspectFit" />
+            <image class="banner-card__img" :src="item.image" :alt="item.title" mode="aspectFit" />
           </view>
         </swiper-item>
       </swiper>
@@ -157,7 +161,12 @@ function goCategory() {
       </view>
 
       <!-- 公告 -->
-      <view v-if="appStore.notices.length" class="home__notice" hover-class="rf-hover" @tap="goNotice">
+      <view
+        v-if="appStore.notices.length"
+        class="home__notice"
+        hover-class="rf-hover"
+        @tap="goNotice"
+      >
         <text class="home__notice-tag">公告</text>
         <swiper class="home__notice-swiper" vertical circular autoplay :interval="3200">
           <swiper-item v-for="item in appStore.notices" :key="item.id">

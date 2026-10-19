@@ -87,6 +87,7 @@ function checkout() {
           <image
             class="cart__cover"
             :src="item.cover"
+            :alt="item.title"
             mode="aspectFill"
             lazy-load
             @tap="goDetail(item.productId)"
