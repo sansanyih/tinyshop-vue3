@@ -111,7 +111,23 @@ VITE_API_BASE=http://127.0.0.1:8080 npm run dev:h5
 | 首屏 CSS | 13KB（gzip 3.3KB） |
 | 小程序体积 | 主包 629KB / order 分包 13.4KB / account 分包 11KB（2MB 限额内） |
 | 类型检查 | `vue-tsc` 0 error |
+| 单元测试 | Vitest **16 个用例**（cart store / format / 请求层），3.2s 跑完 |
+| 代码规范 | ESLint 9 flat + Prettier，**0 error**，CI 门禁 |
+| Lighthouse（线上，移动端） | Performance **81** / Accessibility **71** / Best Practices **79** |
+| 核心 Web 指标 | FCP **1.8s** · LCP **2.1s** · TBT **60ms** · CLS 0.169 |
 | 图片资源 | 15 张全本地化（8–27KB/张），不依赖外网 CDN |
+
+### 质量与性能优化记录
+
+| 优化 | 效果 |
+| --- | --- |
+| 去掉 `document.write` 注入 viewport，改静态 meta | Best Practices 项不再报错，还原生支持缩放（a11y） |
+| 正文/次要文字对比度提到 WCAG AA（#909399 → #6b7280） | color-contrast 大部分通过，a11y 54 → 71 |
+| 关闭 uni 统计脚本 | 去掉第三方请求与 cookie |
+| 图片补 `alt`、商品图固定比例 + 懒加载 | 消除首屏抖动来源之一 |
+
+**对比数据**（同一台机器、同一网络、线上地址）：
+Performance 74 → **81**，FCP 2.8s → **1.8s**，LCP 3.1s → **2.1s**，TBT 240ms → **60ms**。
 
 ## 目录结构
 
@@ -129,9 +145,23 @@ src/
 ├─ main.ts
 ├─ pages.json     # 路由 + tabBar + 分包配置
 └─ manifest.json
+tests/            # Vitest 用例
 scripts/
 ├─ shot.mjs       # 单页截图（CDP 设备模拟）
-└─ shots-all.mjs  # 批量截图 → docs/screenshots
+├─ shots-all.mjs  # 批量截图 → docs/screenshots
+└─ flow-test.mjs  # 端到端下单链路验证
+```
+
+## 开发命令
+
+```bash
+npm run dev:h5      # 开发
+npm run lint        # ESLint 9
+npm run type-check  # vue-tsc
+npm run test        # Vitest
+npm run check       # lint + type-check + test 一把梭
+npm run shots       # 批量截图（需先起 dev server）
+npm run test:flow   # 端到端下单链路（需先起 dev server）
 ```
 
 ## 部署
@@ -147,6 +177,12 @@ scripts/
 - 支付为 Mock 模拟，未接入真实支付
 - 短信验证码为演示码 `123456`
 - Vite 5.2 与 dart-sass 的 legacy API 有弃用警告（不影响构建）
+- **Lighthouse 未满分项**（诚实记录）：
+  - `image-alt`：uni-app 的 `<image>` 组件不会把 `alt` 透传到 H5 的 `<img>`（框架限制）
+  - `cache-insight`：GitHub Pages 固定 10 分钟缓存，无法配置长缓存
+  - `modern-image-formats`：商品图为 JPG，未转 WebP 与多尺寸
+  - CLS 0.169：Banner 轮播与图片加载仍有轻微位移
+- GitHub Pages 在国内访问不稳定（偶发连接失败），生产环境建议换 Vercel / Cloudflare Pages
 
 ## 许可证
 
