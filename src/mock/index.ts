@@ -21,6 +21,34 @@ export function isMockEnabled(): boolean {
   return !import.meta.env.VITE_API_BASE
 }
 
+/**
+ * Mock 订单持久化到本地存储：
+ * 纯内存时整页刷新会丢数据，演示时容易被误判成 bug。
+ */
+const MOCK_ORDERS_KEY = 'rf_mock_orders'
+
+function loadMockOrders() {
+  try {
+    const cached = uni.getStorageSync(MOCK_ORDERS_KEY)
+    if (Array.isArray(cached) && cached.length) {
+      mockOrders.length = 0
+      mockOrders.push(...cached)
+    }
+  } catch {
+    /* 存储不可用时退回纯内存 */
+  }
+}
+
+function saveMockOrders() {
+  try {
+    uni.setStorageSync(MOCK_ORDERS_KEY, mockOrders)
+  } catch {
+    /* ignore */
+  }
+}
+
+loadMockOrders()
+
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 const randomDelay = () => delay(120 + Math.floor(Math.random() * 180))
 
@@ -163,6 +191,7 @@ const routes: Record<string, Handler> = {
       remark: String(ctx.body.remark || '')
     }
     mockOrders.push(order)
+    saveMockOrders()
     return ok(order)
   },
 
@@ -172,6 +201,7 @@ const routes: Record<string, Handler> = {
     const order = mockOrders.find((item) => item.id === Number(ctx.body.id))
     if (!order) return fail(404, '订单不存在')
     order.status = 'shipping'
+    saveMockOrders()
     return ok(order)
   }
 }
